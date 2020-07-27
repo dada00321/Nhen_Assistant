@@ -2,7 +2,7 @@ from modules.basic_scraping_module import *
 
 def scraping_book(busNum):
     url = f"https://nhentai.net/g/{busNum}/"
-    print(f"正在爬本本: {busNum}")
+    print(f"正在開始下載本本: {busNum}")
     r = get_response(url)
     soup = get_soup(r)
     #//div[@id='thumbnail-container'] -- X
@@ -27,6 +27,7 @@ def scraping_book(busNum):
         imgUrl = img_pattern + partial
         #print(imgUrl)
         download_pic(i, imgUrl, busNum)
+    print(f"本本: {busNum} 下載完畢！")
         
 def scraping_many_books():
     path = "BusNumbers.txt"
